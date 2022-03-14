@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment</title>
+  </head>
+  <body>
+    <div id="form">
+      <p>
+        <label for="name">UserName</label>
+        <input type="text" name="name" id="userName" />
+      </p>
+      <p>
+        <label for="name">father'sName</label>
+        <input type="text" name="fathername" id="fatherName" />
+      </p>
+      <p>
+        <label for="name">Caste</label>
+        <input type="text" name="caste" id="caste" />
+      </p>
+      <button onclick="saveName()">Save Name</button>
+    </div>
+    <table id="parentTable" border="1px">
+      <tr>
+        <th>Name</th>
+        <th>Father's Name</th>
+        <th>Caste</th>
+      </tr>
+    </table>
+    <script>
+      function saveName() {
+        var ptable = document.getElementById("parentTable");
+        var rowTag = document.createElement("tr");
+        var data = {
+          name: document.getElementById("userName").value,
+          fathersName: document.getElementById("fatherName").value,
+          caste: document.getElementById("caste").value,
+        };
+        console.log(data);
+        for (i = 0; i < 3; i++) {
+          var dataTag = document.createElement("td");
+          if (i === 0) {
+            dataTag.innerHTML = data.name;
+          } else if (i === 1) {
+            dataTag.innerHTML = data.fathersName;
+          } else {
+            dataTag.innerHTML = data.caste;
+          }
+          rowTag.appendChild(dataTag);
+        }
+        console.log(rowTag);
+        ptable.appendChild(rowTag);
+      }
+    </script>
+  </body>
+</html>
